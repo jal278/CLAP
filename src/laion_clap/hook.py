@@ -111,7 +111,7 @@ class CLAP_Module(torch.nn.Module):
                 print('Download completed!')
         print('Load Checkpoint...')
         ckpt = load_state_dict(ckpt, skip_params=True)
-        self.model.load_state_dict(ckpt)
+        self.model.load_state_dict(ckpt,strict=False)
         if verbose:
             param_names = [n for n, p in self.model.named_parameters()]
             for n in param_names:
